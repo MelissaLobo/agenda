@@ -6,14 +6,15 @@ import java.util.List;
 
 public class BancoDeDadosEmMemoria implements FuncoesDaAgenda{
 
-	private List<Contato> banco =  new ArrayList<Contato>();
+	private List<Contato> listaDeContatos =  new ArrayList<Contato>();
 
-	public void salvaContato(Contato contato) {
-		banco.add(contato);
+	public Contato salvaContato(Contato contato) {
+		listaDeContatos.add(contato);
+		return contato;
 	}
 
-	public Contato buscaContato(int id) {
-		for(Contato contatoAtual: banco){
+	public Contato buscaContatoPorID(Long id) {
+		for(Contato contatoAtual: listaDeContatos){
 			if(contatoAtual.getId().equals(id)){
 				return contatoAtual;
 			}
@@ -22,8 +23,14 @@ public class BancoDeDadosEmMemoria implements FuncoesDaAgenda{
 	}
 
 	public List<Contato> buscaTodosOsContatos() {
-
-		return banco;
+		return listaDeContatos;
 	}
 
+	public void deletarPorNome(String nome) {
+		for(Contato contatoAtual: listaDeContatos){
+			if(contatoAtual.getNome().equals(nome)){
+				listaDeContatos.remove(contatoAtual);
+			}
+		}
+	}
 }

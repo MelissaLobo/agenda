@@ -1,17 +1,17 @@
 package primeiroProjeto;
 
 public class Contato {
-	
+
 	//Contato da agenda
-	
-	private Integer id;
+
+	private Long id;
 	private String nome;
 	private String telefone;
-	
-	public Integer getId() {
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -37,8 +37,6 @@ public class Contato {
 	}
 
 	public String toString() {
-		return "nome "+ nome;
+		return "  \n nome:"+ nome + " \n telefone:"+telefone;
 	}
-
-
 }

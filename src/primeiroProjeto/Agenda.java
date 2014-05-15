@@ -11,15 +11,19 @@ public class Agenda {
 		return banco.buscaTodosOsContatos();
 	}
 
-	public void adicionaContato(Integer id, String nome, String telefone) {
+	public void adicionaContato(String nome, String telefone) {
 
 		Contato contato = new Contato();
-		contato.setId(id);
 		contato.setNome(nome);
 		contato.setTelefone(telefone);
 
 		banco.salvaContato(contato);
-
 }
-
+	public Contato buscandoContato(Long id){
+		return banco.buscaContatoPorID(id);
+	}
+	
+	public void deletarPorNome(String nome) {
+		banco.deletarPorNome(nome);
+	}
 }
